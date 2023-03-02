@@ -1,17 +1,16 @@
 class Clock {
   constructor() {
-    this.date = new Date()
-    this.hours = this.date.getHours()
-    this.minutes = this.date.getMinutes()
-    this.seconds = this.date.getSeconds()
-    this.printTime()
-    debugger
-    setInterval.call(this, this.printTime, 1000)
+    this.date = new Date();
+    this.hours = this.date.getHours();
+    this.minutes = this.date.getMinutes();
+    this.seconds = this.date.getSeconds();
+    this.printTime();
+    setInterval(this._tick.bind(this), 1000);
   }
 
   printTime() {
-    this._tick()
-    console.log(`${this.hours}:${this.minutes}:${this.seconds}`)
+    // this._tick()
+    console.log(`${this.hours}:${this.minutes}:${this.seconds}`);
 
   }
 
@@ -31,9 +30,10 @@ class Clock {
         }
       }
     }
-    // return this.printTime()
+    // debugger
+    this.printTime();
   }
 
 }
 
-c = new Clock()
+const c = new Clock();
